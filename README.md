@@ -17,7 +17,7 @@
 
 Soundle serves one shared puzzle per day. Players listen to a short audio clip and submit guesses. Each guess is evaluated by an LLM, which returns feedback on how close the guess is to the correct answer.
 
-Stats and streaks are stored so players can track progress over time.
+Stats and streaks are stored so players can track their progress over time.
 
 ## Features
 
