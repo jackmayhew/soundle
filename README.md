@@ -4,11 +4,11 @@
  ##
 
  [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
- [![GitHub stars](https://img.shields.io/github/stars/jackmayhew/loon)](https://github.com/jackmayhew/loon)
+ [![GitHub stars](https://img.shields.io/github/stars/jackmayhew/soundle)](https://github.com/jackmayhew/soundle)
 
 *A daily audio puzzle. Can you guess the sound?*
 
-[🌐 Website](https://getloon.ca) | [💬 Support](https://github.com/jackmayhew/loon/issues)
+[🌐 Website](https://soundle.game/) | [💬 Support](https://github.com/jackmayhew/soundle/issues)
 
 <img src="docs/assets/grid.gif" alt="grid animation">
 </div>
@@ -33,9 +33,9 @@ Stats and streaks are stored so players can track progress over time.
 
 - Nuxt 4
 - TypeScript
+- Zod
 - Tailwind CSS
 - GSAP
-- Zod
 
 ### Backend (separate repo)
 
