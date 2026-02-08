@@ -1,75 +1,79 @@
-# Nuxt Minimal Starter
+<div align="center">
+ <img src="docs/assets/soundle.png" alt="Soundle" width="150" height="210">
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+ ##
 
-## Setup
+ [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+ [![GitHub stars](https://img.shields.io/github/stars/jackmayhew/loon)](https://github.com/jackmayhew/loon)
 
-Make sure to install dependencies:
+*A daily audio puzzle. Can you guess the sound?*
+
+[🌐 Website](https://getloon.ca) | [💬 Support](https://github.com/jackmayhew/loon/issues)
+
+<img src="docs/assets/grid.gif" alt="grid animation">
+</div>
+
+## About
+
+Soundle serves one shared puzzle per day. Players listen to a short audio clip and submit guesses. Each guess is evaluated by an LLM, which returns feedback on how close the guess is to the correct answer.
+
+Stats and streaks are stored so players can track progress over time.
+
+## Features
+
+- Daily rotating puzzle
+- 6 guesses per game
+- LLM-based guess evaluation
+- Per-player stats and streak tracking
+- Result sharing
+
+## Tech stack
+
+### Frontend (this repo)
+
+- Nuxt 4
+- TypeScript
+- Tailwind CSS
+- GSAP
+- Zod
+
+### Backend (separate repo)
+
+- Fastify
+- PostgreSQL
+- TypeScript
+- LLM integration
+
+## Development
+
+Install dependencies:
 
 ```bash
-# npm
-npm install
-
-# pnpm
+# Install dependencies
 pnpm install
 
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
+# Run development server
 pnpm dev
 
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
+# Build for production
 pnpm build
 
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
+# Preview production build
 pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+The app runs at http://localhost:3000
+
+## Environment
+
+Create a `.env` file and set:
+
+NUXT_PUBLIC_API_URL=your_backend_url
+
+## Contributing
+
+Issues and pull requests are welcome.
+
+## License
+
+MIT
