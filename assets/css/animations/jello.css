@@ -1,0 +1,34 @@
+.jello {
+    animation: jello 1s;
+}
+
+@keyframes jello {
+    0%, 20%, to {
+        animation-timing-function: cubic-bezier(.2,.6,.35,1);
+        transform: skewX(0) skewY(0) translateY(0) scale(1)
+    }
+    30% {
+        transform: skewX(-9deg) skewY(-9deg)
+    }
+    40% {
+        animation-timing-function: cubic-bezier(.75,.05,.85,.05);
+        transform: skewX(6deg) skewY(6deg) translateY(-30px) scaleY(1.1)
+    }
+    50% {
+        transform: skewX(-3deg) skewY(-3deg)
+    }
+    60% {
+        transform: skewX(1.5deg) skewY(1.5deg) translateY(0) scaleY(.95)
+    }
+    70% {
+        animation-timing-function: cubic-bezier(.75,.05,.85,.06);
+        transform: skewX(-.8deg) skewY(-.8deg) translateY(-15px) scaleY(1.05)
+    }
+    80% {
+        transition-timing-function: cubic-bezier(.2,.6,.35,1);
+        transform: skewX(.4deg) skewY(.4deg) translateY(0) scaleY(.95)
+    }
+    90% {
+        transform: skewX(-.2deg) skewY(-.2deg) translateY(-4px) scaleY(1.02)
+    }
+}

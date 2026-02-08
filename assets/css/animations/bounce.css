@@ -1,0 +1,30 @@
+.bounce {
+    animation: bounce .6s
+
+}
+
+@keyframes bounce {
+    0%,20%,53%,to {
+        animation-timing-function: cubic-bezier(.2,.6,.4,1);
+        transform: translateY(0) scale(.9)
+    }
+
+    40%,43% {
+        animation-timing-function: cubic-bezier(.755,.05,.85,.05);
+        transform: translateY(-10px) scaleX(.9)
+    }
+
+    70% {
+        animation-timing-function: cubic-bezier(.75,.05,.85,.05);
+        transform: translateY(-5px) scale(.9,.95)
+    }
+
+    80% {
+        transition-timing-function: cubic-bezier(.2,.6,.4,1);
+        transform: translateY(0) scale(.9,.85)
+    }
+
+    90% {
+        transform: translateY(-3px) scale(.9,.95)
+    }
+}

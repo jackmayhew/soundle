@@ -1,0 +1,2 @@
+export const SERVICE_UNAVAILABLE_RETRY_SECONDS = 2 * 60 // 2 min
+export const DEFAULT_RATE_LIMIT_RETRY_SECONDS = 60 // 1 min

@@ -1,0 +1,27 @@
+@layer base {
+  :root {
+    --scrollbar-thumb-color: #BDC3C7;
+  }
+
+  .dark {
+    --scrollbar-thumb-color: #4A4A4A;
+  }
+}
+
+.game-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.game-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.game-container::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-color);
+  border-radius: 4px;
+}
+
+.game-container {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb-color) transparent;
+}

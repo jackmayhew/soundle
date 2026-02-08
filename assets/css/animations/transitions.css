@@ -1,0 +1,28 @@
+/* 
+  Note: Most transitions are scoped in components (e.g., components/modals/ModalManager.vue)
+*/
+
+/* Main app view transitions */
+.view-fade-enter-active,
+.view-fade-leave-active {
+  transition: opacity .2s ease;
+}
+
+.view-fade-enter-from,
+.view-fade-leave-to {
+  opacity: 0;
+}
+
+/* Modal children transitions */
+.inner-modal-fade-leave-active {
+  transition: opacity .2s ease;
+}
+
+.inner-modal-enter-active {
+  transition: opacity .2s ease .2s;
+}
+
+.inner-modal-enter-from,
+.inner-modal-leave-to {
+  opacity: 0;
+}

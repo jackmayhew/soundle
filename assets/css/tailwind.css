@@ -1,0 +1,36 @@
+@import './fonts/fonts.css';
+@import './animations/index.css';
+@import './base/index.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { 
+  background-color: #ECF0F1;
+}
+
+html.dark {
+  background-color: #121212;
+}
+
+html, body {
+  overflow: hidden !important;
+}
+
+* {
+  font-synthesis: none !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+.modal-title,
+.main-title-ref {
+  outline: none;
+}
+
+@layer components {
+  /* --- Global Styles --- */
+  button, a, input, textarea, select {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-primary;
+  }
+}

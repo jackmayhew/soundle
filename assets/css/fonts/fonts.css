@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/InterVariable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: block
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/InterVariable-Italic.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: block
+}
+
+@font-face {
+  font-family: 'CoopBlack';
+  src: url('/fonts/COOPBL.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block
+}
