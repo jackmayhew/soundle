@@ -21,7 +21,6 @@ export default defineNuxtConfig({
     workbox: {
       skipWaiting: true,
       clientsClaim: true,
-      // THIS IS THE FIX
       runtimeCaching: [
         {
           urlPattern: ({ request }) => request.mode === 'navigate',
