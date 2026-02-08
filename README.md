@@ -21,11 +21,12 @@ Stats and streaks are stored so players can track progress over time.
 
 ## Features
 
-- Daily rotating puzzle
-- 6 guesses per game
-- LLM-based guess evaluation
-- Per-player stats and streak tracking
-- Result sharing
+- New daily puzzle
+- Play any past puzzle from the archive
+- LLM-powered guess evaluation
+- Player stats and streak tracking
+- Share results and stats as text or an image
+- Optional email reminders for new puzzles
 
 ## Tech stack
 
@@ -49,26 +50,17 @@ Stats and streaks are stored so players can track progress over time.
 Install dependencies:
 
 ```bash
+# Clone repository
+git clone https://github.com/jackmayhew/loon.git
+
 # Install dependencies
 pnpm install
 
 # Run development server
-pnpm dev
-
-# Build for production
-pnpm build
-
-# Preview production build
-pnpm preview
+pnpm dev  # Note: Full functionality requires a backend connection
 ```
 
 The app runs at http://localhost:3000
-
-## Environment
-
-Create a `.env` file and set:
-
-NUXT_PUBLIC_API_URL=your_backend_url
 
 ## Contributing
 
@@ -76,4 +68,4 @@ Issues and pull requests are welcome.
 
 ## License
 
-MIT
+MIT License - see [LICENSE](LICENSE) file for details
