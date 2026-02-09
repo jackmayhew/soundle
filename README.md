@@ -15,7 +15,7 @@
 
 ## About
 
-Soundle serves one shared puzzle per day. Players listen to a short audio clip and submit guesses. Each guess is evaluated by an LLM, which returns feedback on how close the guess is to the correct answer.
+Soundle serves players a daily puzzle. Players listen to a short audio clip and submit guesses. Each guess is evaluated by an LLM, and returns a hint if incorrect.
 
 Stats and streaks are stored so players can track their progress over time.
 
@@ -33,6 +33,7 @@ Stats and streaks are stored so players can track their progress over time.
 ### Frontend (this repo)
 
 - Nuxt 4
+- Pinia
 - TypeScript
 - Zod
 - Tailwind CSS
