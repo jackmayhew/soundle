@@ -15,7 +15,7 @@
 
 ## About
 
-Soundle serves players a daily puzzle. Players listen to a short audio clip and submit guesses. Each guess is evaluated by an LLM, and returns a hint if incorrect.
+Players listen to a short audio clip and submit guesses. Each guess is evaluated by an LLM, and returns a hint if incorrect.
 
 Stats and streaks are stored so players can track their progress over time.
 
