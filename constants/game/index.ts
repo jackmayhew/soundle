@@ -1,1 +1,1 @@
-export const FIRST_PUZZLE_DATE = '2025-12-01'
+export const FIRST_PUZZLE_DATE = '2026-02-01'
