@@ -69,4 +69,4 @@ Issues and pull requests are welcome.
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) file for details
+This project is licensed under CC BY-NC-SA 4.0 - see [LICENSE](LICENSE) file for details
