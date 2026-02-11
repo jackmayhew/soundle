@@ -17,7 +17,7 @@ export default defineNuxtConfig({
     '~/plugins/integrations/posthog.client.ts',
   ],
   pwa: {
-    registerType: 'autoUpdate',
+    registerType: 'prompt',
     workbox: {
       skipWaiting: true,
       clientsClaim: true,
