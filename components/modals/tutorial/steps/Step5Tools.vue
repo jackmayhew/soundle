@@ -86,17 +86,17 @@ onMounted(async () => {
       </GameStat>
     </div>
 
-    <p class="text-xs text-light-text-secondary/60 mb-1">
+    <p class="text-xs text-light-text-secondary dark:text-dark-text-secondary mb-1">
       Every puzzle has a <strong>Difficulty</strong> rating. <br>
     </p>
-    <p class="text-xs text-light-text-secondary/60 mb-1">
+    <p class="text-xs text-light-text-secondary dark:text-dark-text-secondary mb-1">
       Move quickly, the <strong>Timer</strong> is running! <br>
     </p>
-    <p class="text-xs text-light-text-secondary/60 mb-1">
+    <p class="text-xs text-light-text-secondary dark:text-dark-text-secondary mb-1">
       Use the <strong>Hint</strong> if you get stuck.
     </p>
 
-    <p class="mt-4 text-xs italic text-light-text-secondary/60">
+    <p class="mt-4 text-xs italic text-light-text-secondary dark:text-dark-text-secondary">
       Next: Ready to play.
     </p>
   </div>

@@ -14,7 +14,7 @@ import { TUTORIAL_AUDIO } from '~/constants/game/tutorial'
       <AudioPlayer :src="TUTORIAL_AUDIO" />
     </div>
 
-    <p class="mt-4 text-xs italic text-light-text-secondary/60">
+    <p class="mt-4 text-xs italic text-light-text-secondary dark:text-dark-text-secondary">
       Next: Let's make a guess.
     </p>
   </div>

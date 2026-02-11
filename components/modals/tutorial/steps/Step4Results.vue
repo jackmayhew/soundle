@@ -49,7 +49,7 @@ onMounted(async () => {
       </li>
     </ul>
 
-    <p class="mt-6 text-xs italic text-light-text-secondary/60">
+    <p class="mt-6 text-xs italic text-light-text-secondary dark:text-dark-text-secondary">
       Next: Meet your toolkit.
     </p>
   </div>

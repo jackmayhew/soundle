@@ -35,7 +35,7 @@ function prevSlide() {
           <ChevronLeft :size="24" />
         </BaseButton>
 
-        <span class="text-2xl font-bold font-coop select-none">
+        <span class="text-2xl font-bold font-coop select-none text-light-text-secondary dark:text-dark-text-secondary">
           {{ currentStep }} / {{ TOTAL_SLIDES }}
         </span>
 

@@ -42,14 +42,14 @@ onMounted(async () => {
       >
     </div>
     <div class="mt-4 space-y-1">
-      <p class="text-xs text-light-text-secondary/60">
+      <p class="text-xs text-light-text-secondary dark:text-dark-text-secondary">
         <span class="text-red-700 font-bold">Bad:</span> "{{ TUTORIAL_BAD_GUESS }}"
       </p>
-      <p class="text-xs text-light-text-secondary/60">
+      <p class="text-xs text-light-text-secondary dark:text-dark-text-secondary">
         <span class="text-green-800 font-bold">Good:</span> "{{ TUTORIAL_CORRECT_GUESS }}"
       </p>
     </div>
-    <p class="mt-4 text-xs italic text-light-text-secondary/60">
+    <p class="mt-4 text-xs italic text-light-text-secondary dark:text-dark-text-secondary">
       Next: Results and hints.
     </p>
   </div>
