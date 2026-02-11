@@ -58,7 +58,7 @@ onMounted(() => {
           variant="yellow"
           @click="historyStore.viewResults(gameStore.dailyGame.puzzleDate)"
         >
-          Play
+          Results
         </MenuButton>
         <MenuButton
           variant="black"
