@@ -52,7 +52,7 @@ Install dependencies:
 
 ```bash
 # Clone repository
-git clone https://github.com/jackmayhew/loon.git
+git clone https://github.com/jackmayhew/soundle.git
 
 # Install dependencies
 pnpm install
