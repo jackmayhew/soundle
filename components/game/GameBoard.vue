@@ -75,13 +75,19 @@ function onPuzzleReady() {
   handlePuzzleReady()
 }
 
-onMounted(() => {
-  initialize()
-
+/**
+ * Shows the tutorial modal on first play
+ */
+function handleShowTutorial() {
   if (!userStore.hasPlayedBefore) {
     uiStore.showModal('gameTutorial')
     userStore.hasPlayedBefore = true
   }
+}
+
+onMounted(() => {
+  initialize()
+  handleShowTutorial()
 })
 
 onUnmounted(() => {
