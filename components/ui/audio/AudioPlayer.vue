@@ -13,6 +13,8 @@ const emit = defineEmits<{
 }>()
 
 const uiStore = useUiStore()
+const gameStore = useGameStore()
+
 const { trackException } = useTrackException()
 const buttonRef = ref<HTMLElement | null>(null)
 const audio = ref<HTMLAudioElement | null>(null)
@@ -32,7 +34,6 @@ const soundBtnAriaLabel = computed(() => {
   return isPlaying.value ? 'Pause sound' : 'Play sound'
 })
 
-// --- Audio Logic ---
 function initAudio(url: string) {
   cleanup()
   hasError.value = false
@@ -40,9 +41,6 @@ function initAudio(url: string) {
 
   const newAudio = new Audio(url)
 
-  // Unblock UI as soon as we know the file exists (Metadata loaded).
-  // iOS often pauses downloading here (NetState 1), so we must let the user
-  // click 'Play' to force the browser to resume.
   const onReady = () => {
     if (isBuffering.value) {
       isBuffering.value = false
@@ -52,7 +50,7 @@ function initAudio(url: string) {
 
   const onError = async () => {
     console.error('Audio stream error:', newAudio.error)
-    // Small delay to prevent flickering if it's a transient network glitch
+    // Small delay to prevent flickering
     await delay(500)
     isBuffering.value = false
     isPlaying.value = false
@@ -60,16 +58,19 @@ function initAudio(url: string) {
   }
 
   const onPlay = () => isPlaying.value = true
-  const onPauseOrEnd = () => isPlaying.value = false
+  const onPause = () => isPlaying.value = false
+  const onEnd = () => {
+    gameStore.incrementListenCount()
+    isPlaying.value = false
+  }
 
-  // Listen for both. 'loadedmetadata' usually fires first on iOS, breaking the deadlock.
   newAudio.addEventListener('loadedmetadata', onReady)
   newAudio.addEventListener('canplay', onReady)
 
   newAudio.addEventListener('error', onError)
   newAudio.addEventListener('play', onPlay)
-  newAudio.addEventListener('pause', onPauseOrEnd)
-  newAudio.addEventListener('ended', onPauseOrEnd)
+  newAudio.addEventListener('pause', onPause)
+  newAudio.addEventListener('ended', onEnd)
 
   audio.value = newAudio
 }
@@ -83,7 +84,6 @@ function cleanup() {
   isBuffering.value = false
 }
 
-// Watchers
 watch(() => props.src, (newUrl) => {
   if (newUrl) {
     initAudio(newUrl)
@@ -109,7 +109,6 @@ watchEffect(() => {
   }
 })
 
-// --- Actions ---
 function handleClick() {
   if (isLoading.value)
     return
@@ -123,7 +122,6 @@ function handleClick() {
     const playPromise = isPlaying.value ? audio.value.pause() : audio.value.play()
     if (playPromise !== undefined) {
       playPromise.catch((error) => {
-        // Don't track 'AbortError' which happens if user pauses quickly while loading
         if (error.name !== 'AbortError') {
           trackException('AudioPlaybackError', error)
           console.error('Audio playback failed:', error)

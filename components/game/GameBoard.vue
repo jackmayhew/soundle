@@ -101,6 +101,7 @@ onUnmounted(() => {
       :active-game="activeGame"
       :timer="formattedTime"
     />
+    {{ gameStore.activeGame?.listenCount }}
     <div class="mt-4 w-full flex justify-center">
       <AudioPlayer
         v-model:status="audioStatus"

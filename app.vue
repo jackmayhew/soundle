@@ -1,20 +1,16 @@
 <script setup lang="ts">
-// UI State & View Logic
 const uiStore = useUiStore()
 const { currentComponent } = useAppViewState()
 const { isMobile } = useDevice()
 
-// DOM management and animations
 const gameWrapperRef = ref<HTMLElement | null>(null)
 const scrollContainer = ref<HTMLElement | null>(null)
 
-// Composables
 setupHead()
 const { initializeUrlHandlers } = useUrlHandlers()
 const { initializeThemeColor } = useThemeColor()
 const { playIntroAnimation } = useAppIntro()
 
-// View Transition Logic
 const {
   stopScrollMomentum,
   setScrollPosition,

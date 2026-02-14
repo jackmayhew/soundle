@@ -18,6 +18,7 @@ export const useGameStore = defineStore('game', {
   state: () => ({
     dailyGame: {
       guesses: [],
+      listenCount: 0,
       result: 'pending',
       puzzleDate: getTodayString(),
       audioUrl: '',
@@ -70,6 +71,7 @@ export const useGameStore = defineStore('game', {
       if (this.dailyGame.puzzleDate !== todayString) {
         this.dailyGame = {
           guesses: [],
+          listenCount: 0,
           result: 'pending',
           puzzleDate: todayString,
           audioUrl: '',
@@ -105,6 +107,7 @@ export const useGameStore = defineStore('game', {
       this.archiveGame = {
         puzzleDate,
         guesses: [],
+        listenCount: 0,
         result: 'pending',
         audioUrl: '',
         hint: '',
@@ -182,6 +185,16 @@ export const useGameStore = defineStore('game', {
     },
 
     /**
+     * Track how many times the user played the audio clip.
+     */
+    incrementListenCount() {
+      const game = this.activeGame
+      if (!game || this.isGameDisabled)
+        return
+      game.listenCount++
+    },
+
+    /**
      * Stores the correct solution for the active puzzle. This is typically
      * called after a game concludes to allow for answer reveal logic.
      */
@@ -219,6 +232,7 @@ export const useGameStore = defineStore('game', {
      */
     async submitPuzzleResult() {
       const game = this.activeGame
+
       if (!game || !game.completionTime)
         return
 
@@ -230,6 +244,7 @@ export const useGameStore = defineStore('game', {
         puzzleDate: game.puzzleDate,
         won: game.result === 'win',
         guessCount: game.guesses.length,
+        listenCount: game.listenCount,
         time: Math.min(game.completionTime, MAX_TIME_MS),
         anonymousId: userStore.anonymousId,
       }

@@ -2,6 +2,7 @@ import type { GuessResult } from '~/types/game/guess/guess-result.types'
 
 export interface GameInstance {
   guesses: GuessResult[]
+  listenCount: number
   result: 'pending' | 'win' | 'loss'
   puzzleDate: string
   audioUrl: string
