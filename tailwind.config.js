@@ -1,6 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
+  content: [
+    './components/**/*.{vue,js,ts}',
+    './views/**/*.{vue,js,ts}',
+    './app.vue',
+    './plugins/**/*.{js,ts}',
+    './nuxt.config.{js,ts}',
+    './composables/**/*.{js,ts}',
+  ],
   darkMode: 'class',
   future: { hoverOnlyWhenSupported: true },
   theme: {

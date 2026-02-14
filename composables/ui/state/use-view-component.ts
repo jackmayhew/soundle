@@ -1,16 +1,16 @@
 import { computed } from 'vue'
 
-import Contact from '~/components/views/contact/Contact.vue'
-import Archive from '~/components/views/game/Archive.vue'
-import Game from '~/components/views/game/Game.vue'
-import UserStats from '~/components/views/game/UserStats.vue'
-import HowToPlay from '~/components/views/info/HowToPlay.vue'
-import PrivacyPolicy from '~/components/views/legal/PrivacyPolicy.vue'
-import TermsOfService from '~/components/views/legal/TermsOfService.vue'
-import Menu from '~/components/views/menu/Menu.vue'
-import Reminders from '~/components/views/reminders/Reminders.vue'
-import Unsubscribe from '~/components/views/reminders/unsubscribe/Unsubscribe.vue'
-import Results from '~/components/views/results/Results.vue'
+import Contact from '~/views/contact/Contact.vue'
+import Archive from '~/views/game/Archive.vue'
+import Game from '~/views/game/Game.vue'
+import UserStats from '~/views/game/UserStats.vue'
+import HowToPlay from '~/views/info/HowToPlay.vue'
+import PrivacyPolicy from '~/views/legal/PrivacyPolicy.vue'
+import TermsOfService from '~/views/legal/TermsOfService.vue'
+import Menu from '~/views/menu/Menu.vue'
+import Reminders from '~/views/reminders/Reminders.vue'
+import Unsubscribe from '~/views/reminders/unsubscribe/Unsubscribe.vue'
+import Results from '~/views/results/Results.vue'
 
 /**
  * Resolves the currently active main view component.
