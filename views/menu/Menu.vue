@@ -81,9 +81,6 @@ onMounted(() => {
           </BaseButton>
         </div>
       </div>
-      <!-- <BaseButton @click="() => { throw new Error('Frontend Crash Test') }">
-        Click to Crash
-      </BaseButton> -->
     </div>
   </div>
 </template>

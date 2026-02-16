@@ -23,7 +23,7 @@ import { Mail, Twitter } from 'lucide-vue-next'
           <span class="font-medium">hello@soundle.game</span>
         </a>
         <a
-          href="https://twitter.com/soundle"
+          href="https://twitter.com/soundlegame"
           target="_blank"
           class="group flex items-center gap-1"
         >
