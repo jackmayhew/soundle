@@ -29,4 +29,5 @@ export const TUTORIAL_GAME: GameInstance = {
   puzzleNumber: 1,
   elapsedTime: 0,
   completionTime: 0,
+  listenCount: 0,
 }

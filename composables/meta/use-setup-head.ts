@@ -36,7 +36,6 @@ export function setupHead() {
       lang: 'en',
     },
     link: [
-      { rel: 'apple-touch-icon', href: '/images/ray.jpg' },
       // favicons
       { rel: 'icon', type: 'image/png', href: '/favicon/favicon-96x96.png', sizes: '96x96' },
       { rel: 'icon', type: 'image/svg+xml', href: '/favicon/favicon.svg' },

@@ -7,6 +7,7 @@ const gameWrapperRef = ref<HTMLElement | null>(null)
 const scrollContainer = ref<HTMLElement | null>(null)
 
 setupHead()
+
 const { initializeUrlHandlers } = useUrlHandlers()
 const { initializeThemeColor } = useThemeColor()
 const { playIntroAnimation } = useAppIntro()
@@ -30,12 +31,10 @@ onMounted(() => {
     flex flex-col justify-center items-center p-2 overflow-hidden transition-colors"
     :class="isMobile === false ? 'duration-300' : 'duration-0'"
   >
-    <!-- Main UI Frame -->
     <div
       ref="gameWrapperRef"
       class="will-change-opacity w-full h-full max-w-[350px] max-h-[600px] border-light-border-primary dark:border-dark-border-primary border-3 rounded-2xl relative overflow-hidden opacity-0"
     >
-      <!-- Scrollable Content Area -->
       <div
         ref="scrollContainer"
         role="region"
@@ -52,7 +51,6 @@ onMounted(() => {
                 @before-enter="setScrollPosition"
                 @after-enter="handleFocus"
               >
-                <!-- Dynamic View Swapper -->
                 <div
                   :key="uiStore.view"
                   class="h-full bg-light-game-background dark:bg-dark-game-background will-change-opacity"
@@ -63,8 +61,6 @@ onMounted(() => {
             </ClientOnly>
           </div>
         </ErrorBoundary>
-
-        <!-- Global Modals -->
         <ModalManager />
       </div>
     </div>
