@@ -11,7 +11,7 @@ defineProps<{
 <template>
   <div id="shareCard" class="bg-[#ECF0F1] p-4 border-3 border-black-primary rounded-2xl text-black-primary w-[250px]">
     <div class="text-center mb-2">
-      <h1 class="text-3xl font-coop">
+      <h1 class="text-3xl font-crumb">
         Soundle.
       </h1>
       <p class="text-xs">
@@ -82,7 +82,7 @@ defineProps<{
     </div>
 
     <div class="text-center">
-      <p class="font-coop">
+      <p class="font-crumb">
         soundle.game
       </p>
     </div>

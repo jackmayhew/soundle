@@ -22,7 +22,7 @@ function handleError(error: unknown) {
         <div class="mb-1 text-5xl">
           ⚠️
         </div>
-        <h2 class="main-title-ref text-4xl font-coop mb-1 text-light-text-primary dark:text-dark-text-primary" tabindex="-1">
+        <h2 class="main-title-ref text-4xl font-crumb mb-1 text-light-text-primary dark:text-dark-text-primary" tabindex="-1">
           Error.
         </h2>
         <p class="text-sm text-gray-600 mb-2 text-light-text-secondary dark:text-dark-text-secondary">

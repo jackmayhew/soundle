@@ -15,9 +15,8 @@
 }
 
 @font-face {
-  font-family: 'CoopBlack';
-  src: url('/fonts/COOPBL.woff') format('woff');
+  font-family: 'Crumb';
+  src: url('/fonts/Crumb.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-  font-display: block
 }

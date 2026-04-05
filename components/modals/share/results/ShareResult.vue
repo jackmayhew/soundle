@@ -11,7 +11,7 @@ const shareOptions = ref<ResultsShareOptions>({
   showGuesses: false,
 })
 
-const fileName = `soundle-results-${historyStore.resultsDate}.png`
+const fileName = `soundle-${historyStore.resultsDate}.png`
 
 const {
   isGenerating,

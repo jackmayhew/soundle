@@ -13,10 +13,10 @@ withDefaults(defineProps<{
 const titleRef = ref<HTMLElement>()
 defineExpose({ titleRef })
 
-const baseClasses = 'font-coop text-light-text-primary dark:text-dark-text-primary font-bold mb-2'
+const baseClasses = 'font-crumb text-light-text-primary dark:text-dark-text-primary font-bold mb-2'
 const titleClasses = {
   default: 'text-2xl xs-300:text-3.5xl',
-  lg: 'text-2xl xs-300:text-2.5xl xs-350:text-3.5xl',
+  lg: 'text-xl xs-300:text-2xl xs-350:text-3.5xl',
 }
 </script>
 

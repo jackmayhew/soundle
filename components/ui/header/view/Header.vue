@@ -23,7 +23,7 @@ const titleClasses = {
   >
     <div class="flex justify-center">
       <h1
-        class="main-title-ref font-coop font-bold text-center text-light-text-primary dark:text-dark-text-primary"
+        class="main-title-ref font-crumb font-bold text-center text-light-text-primary dark:text-dark-text-primary"
         :class="titleClasses[size]"
         tabindex="-1"
       >

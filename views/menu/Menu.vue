@@ -31,7 +31,7 @@ onMounted(() => {
       <h1
         ref="titleRef"
         tabindex="-1"
-        class="main-title-ref text-4xl xs-350:text-5xl font-coop text-light-text-primary dark:text-dark-text-primary will-change-[opacity,transform]"
+        class="main-title-ref text-4xl xs-350:text-5xl font-crumb text-light-text-primary dark:text-dark-text-primary will-change-[opacity,transform]"
       >
         Soundle.
       </h1>

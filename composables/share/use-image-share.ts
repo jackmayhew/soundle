@@ -84,13 +84,13 @@ export function useImageShare({ elementId, fileName }: UseImageShareOptions) {
       const fonts = [
         { url: '/fonts/share-results/Inter.ttf', name: 'Inter', weight: 400 },
         { url: '/fonts/share-results/Inter-Black.woff2', name: 'Inter', weight: 900 },
-        { url: '/fonts/share-results/COOPBL.TTF', name: 'CoopBlack' },
+        { url: '/fonts/share-results/Crumb.woff', name: 'Crumb' },
       ]
 
       const fontCssArray = await Promise.all(fonts.map(f => getFontEmbedCSS(f.url, f.name, f.weight)))
       const embeddedFontCSS = `${fontCssArray.join('')}
         #${elementId} { font-family: 'Inter-Embedded', sans-serif !important; }
-        #${elementId} .font-coop { font-family: 'CoopBlack-Embedded', sans-serif !important; }`
+        #${elementId} .font-crumb { font-family: 'Crumb-Embedded', sans-serif !important; }`
 
       const styleEl = document.createElement('style')
       styleEl.id = 'temp-embedded-fonts'

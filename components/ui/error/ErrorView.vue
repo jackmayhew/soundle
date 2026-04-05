@@ -22,7 +22,7 @@ const emit = defineEmits<{
       <div class="mb-1 text-5xl">
         ⚠️
       </div>
-      <h1 class="main-title-ref text-4xl font-coop text-light-text-primary dark:text-dark-text-primary" tabindex="-1">
+      <h1 class="main-title-ref text-4xl font-crumb text-light-text-primary dark:text-dark-text-primary" tabindex="-1">
         Error.
       </h1>
       <p class="text-sm text-gray-600 mb-3 text-light-text-secondary dark:text-dark-text-secondary">

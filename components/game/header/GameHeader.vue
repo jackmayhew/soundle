@@ -15,7 +15,7 @@ const hint = computed(() => props.activeGame?.hint)
   <div class="flex pt-4 sticky top-0 bg-light-game-background dark:bg-dark-game-background pb-2 z-[100]">
     <div class="w-1/2">
       <h1
-        class="main-title-ref text-[2rem] flex items-center font-coop leading-none text-light-text-primary dark:text-dark-text-primary"
+        class="main-title-ref text-[2rem] flex items-center font-crumb leading-none text-light-text-primary dark:text-dark-text-primary"
         tabindex="-1"
       >
         Soundle.

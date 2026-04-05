@@ -13,7 +13,7 @@ const btnText = computed(() => uiStore.view === 'game' ? 'Play!' : 'Close Tutori
     <div class="grid grid-cols-1 gap-4 w-full mb-4">
       <div class="flex items-start gap-2">
         <div class="text-center">
-          <h4 class="font-black font-coop text-lg uppercase text-light-text-primary dark:text-dark-text-primary">
+          <h4 class="font-black font-crumb text-lg uppercase text-light-text-primary dark:text-dark-text-primary">
             Daily Soundle.
           </h4>
           <p class="text-xs text-light-text-secondary dark:text-dark-text-secondary">
@@ -23,7 +23,7 @@ const btnText = computed(() => uiStore.view === 'game' ? 'Play!' : 'Close Tutori
       </div>
       <div class="flex items-start gap-2">
         <div class="text-center">
-          <h4 class="font-black font-coop text-lg uppercase text-light-text-primary dark:text-dark-text-primary">
+          <h4 class="font-black font-crumb text-lg uppercase text-light-text-primary dark:text-dark-text-primary">
             The Archive.
           </h4>
           <p class="text-xs text-light-text-secondary dark:text-dark-text-secondary">

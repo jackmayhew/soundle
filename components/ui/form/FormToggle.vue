@@ -33,7 +33,7 @@ const labelClasses = computed(() => ({
   <div class="relative" :class="{ 'cursor-not-allowed': disabled }">
     <label
       :for="id"
-      class="flex items-center justify-between text-sm font-semibold"
+      class="flex items-center justify-between gap-2 text-sm font-semibold"
       :class="labelClasses"
       :tabindex="disabled ? -1 : 0"
       @keydown.space="handleClick"

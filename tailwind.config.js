@@ -21,7 +21,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
-        coop: ['CoopBlack', 'serif'],
+        crumb: ['Crumb'],
       },
       colors: {
         yellow: { primary: '#ffeaa7', secondary: '#ffe17a' },

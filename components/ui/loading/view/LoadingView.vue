@@ -19,7 +19,7 @@ withDefaults(defineProps<{
         border-width="border-4"
         border-color="border-light-text-primary dark:border-dark-text-primary"
       />
-      <h1 class="main-title-ref text-4xl font-coop mb-1 text-light-text-primary dark:text-dark-text-primary" tabindex="-1">
+      <h1 class="main-title-ref text-4xl font-crumb mb-1 text-light-text-primary dark:text-dark-text-primary" tabindex="-1">
         {{ title }}
       </h1>
       <p class="text-sm text-light-text-secondary dark:text-dark-text-secondary">

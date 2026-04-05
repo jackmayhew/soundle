@@ -34,7 +34,7 @@ onMounted(() => {
         <div class="text-5xl">
           ⚠️
         </div>
-        <h1 class="main-title-ref text-5xl font-bold text-light-text-primary dark:text-dark-text-primary font-coop">
+        <h1 class="main-title-ref text-5xl font-bold text-light-text-primary dark:text-dark-text-primary font-crumb">
           Page Not Found.
         </h1>
         <p class="mt-2 text-light-text-secondary dark:text-dark-text-secondary">

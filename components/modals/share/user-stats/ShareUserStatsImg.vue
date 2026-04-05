@@ -9,13 +9,13 @@ defineProps<{
 <template>
   <div id="shareCard" class="bg-[#ECF0F1] p-4 border-3 border-black-primary rounded-2xl text-black-primary w-[250px]">
     <div class="text-center mb-2">
-      <h1 class="text-3xl font-coop">
+      <h1 class="text-3xl font-crumb">
         Soundle.
       </h1>
     </div>
     <div class="text-center mb-3">
       <div class="flex flex-col items-center">
-        <span class="text-5xl font-bold font-coop">
+        <span class="text-5xl font-bold font-crumb">
           {{ userStats.currentStreak }}
         </span>
         <span class="text-sm uppercase text-black-primary -mt-1">
@@ -82,7 +82,7 @@ defineProps<{
       </div>
     </div>
     <div class="text-center mt-4">
-      <p class="font-coop">
+      <p class="font-crumb">
         soundle.game
       </p>
     </div>

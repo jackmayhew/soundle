@@ -81,7 +81,7 @@ export default defineNuxtConfig({
         },
         {
           rel: 'preload',
-          href: '/fonts/COOPBL.woff',
+          href: '/fonts/Crumb.woff',
           as: 'font',
           type: 'font/woff',
           crossorigin: 'anonymous',

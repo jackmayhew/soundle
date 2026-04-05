@@ -16,7 +16,7 @@ const resultMessage = computed(() => {
 <template>
   <div v-if="resultData" class="flex flex-col flex-grow">
     <h1
-      class="main-title-ref text-4xl font-coop uppercase text-center text-light-text-primary dark:text-dark-text-primary"
+      class="main-title-ref text-4xl font-crumb uppercase text-center text-light-text-primary dark:text-dark-text-primary"
       tabindex="-1"
     >
       {{ resultMessage }}

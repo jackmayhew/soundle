@@ -16,7 +16,7 @@ const userStats = computed(() => statsStore.stats)
     <div>
       <div class="text-center mb-4">
         <div class="flex flex-col items-center">
-          <span class="text-6xl font-bold font-coop text-light-text-primary dark:text-dark-text-primary">
+          <span class="text-6xl font-bold font-crumb text-light-text-primary dark:text-dark-text-primary">
             {{ userStats.currentStreak }}
           </span>
           <span class="text-sm uppercase text-light-text-secondary dark:text-dark-text-secondary -mt-1">
