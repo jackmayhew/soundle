@@ -92,9 +92,12 @@ defineProps<{
 <style>
 .answer-hidden,
 .guess-hidden {
-  color: transparent;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.1);
+  filter: blur(6px);
+  -webkit-filter: blur(6px);
+  display: inline-block;
+  line-height: 1;
   user-select: none;
-   border: 2px solid red;
+  pointer-events: none;
 }
 </style>
