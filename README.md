@@ -70,6 +70,3 @@ Issues and pull requests are welcome.
 ## License
 
 This project is licensed under CC BY-NC-SA 4.0 - see [LICENSE](LICENSE) file for details
-
-MIGRATE TO NUXT4 folder structure
-daily streak user stat number is blurred at top from header i think
