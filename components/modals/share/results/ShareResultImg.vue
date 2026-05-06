@@ -94,5 +94,6 @@ defineProps<{
 .guess-hidden {
   -webkit-filter: blur(4px);
   filter: blur(4px);
+  transform: translateZ(0);
 }
 </style>
