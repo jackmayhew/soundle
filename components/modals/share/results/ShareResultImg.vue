@@ -92,7 +92,7 @@ defineProps<{
 <style>
 .answer-hidden,
 .guess-hidden {
-  -webkit-filter: blur(160px);
+  -webkit-filter: blur(16px);
   filter: blur(4px);
   transform: translateZ(0);
 }
