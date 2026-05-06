@@ -21,7 +21,7 @@ defineProps<{
     <h3
       v-if="result.answer"
       class="text-lg font-extrabold text-center uppercase leading-none transition-all"
-      :class="{ 'blur-sm opacity-40 tracking-[-0.2em] select-none': !options.showAnswer }"
+      :class="{ 'answer-hidden': !options.showAnswer }"
     >
       {{ result.answer }}.
     </h3>
@@ -61,7 +61,7 @@ defineProps<{
           <div class="flex-grow overflow-hidden">
             <div
               class="truncate uppercase text-left w-full py-0.5 pr-1 pl-2 text-base"
-              :class="{ 'blur-sm opacity-40 tracking-[-0.2em] select-none': !options.showGuesses }"
+              :class="{ 'guess-hidden': !options.showGuesses }"
             >
               {{ result.guesses[n - 1]!.text }}
             </div>
@@ -88,3 +88,11 @@ defineProps<{
     </div>
   </div>
 </template>
+
+<style>
+.answer-hidden,
+.guess-hidden {
+  -webkit-filter: blur(4px);
+  filter: blur(4px);
+}
+</style>
