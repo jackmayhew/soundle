@@ -20,7 +20,9 @@ onMounted(() => {
       />
       <ErrorView
         v-else
-        message="There was an error loading this puzzle. Please try again."
+        title="Taking a break."
+        message="Daily puzzles will resume on May 15th. Until then, feel free to play the archive."
+        :show-button="false"
         @retry="gameStore.loadActivePuzzleData()"
       />
     </div>

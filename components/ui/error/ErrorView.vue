@@ -1,9 +1,13 @@
 <script setup lang="ts">
 withDefaults(defineProps<{
+  title?: string
   message?: string
+  showButton?: boolean
   buttonText?: string
 }>(), {
+  title: 'Error.',
   message: 'Something went wrong. Please try again.',
+  showButton: true,
   buttonText: 'Retry',
 })
 
@@ -23,12 +27,13 @@ const emit = defineEmits<{
         ⚠️
       </div>
       <h1 class="main-title-ref text-4xl font-crumb text-light-text-primary dark:text-dark-text-primary" tabindex="-1">
-        Error.
+        {{ title }}
       </h1>
       <p class="text-sm text-gray-600 mb-3 text-light-text-secondary dark:text-dark-text-secondary">
         {{ message }}
       </p>
       <BaseButton
+        v-if="showButton"
         class="px-5 bg-green-primary hover:bg-green-secondary dark:hover:bg-green-tertiary border-3 border-light-border-primary dark:border-dark-border-primary rounded-md font-bold h-[46px] text-lg transition-all duration-300 ease-in-out"
         @click="emit('retry')"
       >
