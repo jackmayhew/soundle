@@ -3,7 +3,7 @@
 
  ##
 
- [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+ [![CC BY-NC-SA 4.0](https://img.shields.io/badge/license-CC_BY--NC--SA_4.0-blue.svg)](LICENSE)
  [![GitHub stars](https://img.shields.io/github/stars/jackmayhew/soundle)](https://github.com/jackmayhew/soundle)
 
 *A daily audio puzzle. Can you guess the sound?*
@@ -69,4 +69,4 @@ Issues and pull requests are welcome.
 
 ## License
 
-This project is licensed under CC BY-NC-SA 4.0 - see [LICENSE](LICENSE) file for details
+This project is licensed under CC BY-NC-SA 4.0. See [LICENSE](LICENSE) for details.

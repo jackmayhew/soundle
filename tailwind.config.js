@@ -2,12 +2,12 @@
 
 module.exports = {
   content: [
-    './components/**/*.{vue,js,ts}',
-    './views/**/*.{vue,js,ts}',
-    './app.vue',
-    './plugins/**/*.{js,ts}',
+    './app/components/**/*.{vue,js,ts}',
+    './app/views/**/*.{vue,js,ts}',
+    './app/app.vue',
+    './app/plugins/**/*.{js,ts}',
     './nuxt.config.{js,ts}',
-    './composables/**/*.{js,ts}',
+    './app/composables/**/*.{js,ts}',
   ],
   darkMode: 'class',
   future: { hoverOnlyWhenSupported: true },

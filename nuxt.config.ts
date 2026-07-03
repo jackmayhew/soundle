@@ -1,10 +1,12 @@
 import process from 'node:process'
+import { fileURLToPath } from 'node:url'
 import { defineNuxtConfig } from 'nuxt/config'
 import { IS_DEV } from './constants/app/config'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
+  css: ['~/assets/css/tailwind.css'],
   modules: [
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
@@ -16,6 +18,11 @@ export default defineNuxtConfig({
     '~/plugins/app/init.client.ts',
     '~/plugins/integrations/posthog.client.ts',
   ],
+  alias: {
+    '~/constants': fileURLToPath(new URL('./constants', import.meta.url)),
+    '~/schemas': fileURLToPath(new URL('./schemas', import.meta.url)),
+    '~/types': fileURLToPath(new URL('./types', import.meta.url)),
+  },
   pwa: {
     registerType: 'prompt',
     workbox: {
@@ -90,6 +97,22 @@ export default defineNuxtConfig({
     },
   },
   vite: {
+    resolve: {
+      alias: [
+        {
+          find: /^~\/constants\/(.*)$/,
+          replacement: `${fileURLToPath(new URL('./constants', import.meta.url))}/$1`,
+        },
+        {
+          find: /^~\/schemas\/(.*)$/,
+          replacement: `${fileURLToPath(new URL('./schemas', import.meta.url))}/$1`,
+        },
+        {
+          find: /^~\/types\/(.*)$/,
+          replacement: `${fileURLToPath(new URL('./types', import.meta.url))}/$1`,
+        },
+      ],
+    },
     build: {
       minify: 'terser',
       terserOptions: {
@@ -105,6 +128,11 @@ export default defineNuxtConfig({
   },
   nitro: {
     preset: 'cloudflare-pages',
+    alias: {
+      '~/constants': fileURLToPath(new URL('./constants', import.meta.url)),
+      '~/schemas': fileURLToPath(new URL('./schemas', import.meta.url)),
+      '~/types': fileURLToPath(new URL('./types', import.meta.url)),
+    },
     prerender: {
       routes: ['/'],
     },
