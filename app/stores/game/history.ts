@@ -94,6 +94,7 @@ export const useHistoryStore = defineStore('history', {
         puzzleNumber: null,
         elapsedTime: 0,
         completionTime: 0,
+        listenCount: 0,
       }
 
       uiStore.setView('game')
