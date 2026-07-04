@@ -6,6 +6,11 @@ defineProps<{
   result: GameInstance
   options: ResultsShareOptions
 }>()
+
+// CSS blur is nicer, but html-to-image exports it unreliably on iOS Safari
+function hideText(text: string, character: '?' | '*', maxLength = 12) {
+  return character.repeat(Math.min(Math.max(text.length, 6), maxLength))
+}
 </script>
 
 <template>
@@ -21,9 +26,8 @@ defineProps<{
     <h3
       v-if="result.answer"
       class="text-lg font-extrabold text-center uppercase leading-none"
-      :class="{ 'blur-sm': !options.showAnswer }"
     >
-      {{ result.answer }}.
+      {{ options.showAnswer ? `${result.answer}.` : `${hideText(result.answer, '?')}` }}
     </h3>
 
     <div class="flex gap-2 items-center justify-evenly mt-2">
@@ -61,9 +65,8 @@ defineProps<{
           <div class="flex-grow overflow-hidden">
             <div
               class="truncate uppercase text-left w-full py-0.5 pr-1 pl-2 text-base"
-              :class="{ 'blur-sm': !options.showGuesses }"
             >
-              {{ result.guesses[n - 1]!.text }}
+              {{ options.showGuesses ? `${result.guesses[n - 1]!.text}.` : hideText(result.guesses[n - 1]!.text, '*') }}
             </div>
           </div>
 
