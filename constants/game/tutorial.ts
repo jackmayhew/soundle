@@ -16,7 +16,6 @@ export const TUTORIAL_GUESSES: TutorialGuess[] = [
   { text: TUTORIAL_CORRECT_GUESS, correct: true, hint: null },
 ]
 
-// Don't really need this but whatever
 export const TUTORIAL_GAME: GameInstance = {
   guesses: TUTORIAL_GUESSES,
   result: 'pending',

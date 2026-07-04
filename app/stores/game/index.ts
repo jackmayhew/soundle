@@ -34,23 +34,13 @@ export const useGameStore = defineStore('game', {
   }),
 
   getters: {
-    /**
-     * Returns the state of the puzzle currently in play.
-     * Prioritizes an archive session if one is active, otherwise defaults to the daily game.
-     */
     activeGame(state): GameInstance | null {
-      // if an archive game has been loaded, it's the active one
       if (state.archiveGame) {
         return state.archiveGame
       }
-      // otherwise, the daily game is the active one
       return state.dailyGame
     },
 
-    /**
-     * Global flag to prevent user input. Returns true if the max guess
-     * limit is reached or if the game has already concluded.
-     */
     isGameDisabled(): boolean {
       const game = this.activeGame
       if (!game)
@@ -60,14 +50,9 @@ export const useGameStore = defineStore('game', {
   },
 
   actions: {
-    /**
-     * Resets the daily game state if the player's local system date
-     * has changed since the last session.
-     */
     initializeDailyGame() {
       const todayString = getTodayString()
 
-      // if the persisted date is not today, reset the daily game completely
       if (this.dailyGame.puzzleDate !== todayString) {
         this.dailyGame = {
           guesses: [],
@@ -86,10 +71,6 @@ export const useGameStore = defineStore('game', {
       }
     },
 
-    /**
-     * Initializes a temporary session for a past puzzle.
-     * Redirects to the results view if the puzzle has already been completed.
-     */
     startArchiveGame(puzzleDate: string) {
       if (puzzleDate === this.dailyGame.puzzleDate) {
         this.startDailyGame()
@@ -98,7 +79,6 @@ export const useGameStore = defineStore('game', {
 
       const historyStore = useHistoryStore()
 
-      // Use historyStore to check the calendar and navigate
       if (historyStore.getGameByDate(puzzleDate)) {
         historyStore.viewResults(puzzleDate)
         return
@@ -123,10 +103,6 @@ export const useGameStore = defineStore('game', {
       uiStore.setView('game')
     },
 
-    /**
-     * Fetches puzzle metadata and audio assets from the API.
-     * Includes a forced minimum delay to prevent UI flickering on fast connections.
-     */
     async loadActivePuzzleData() {
       const game = this.activeGame
       if (!game || game.loadingStatus === 'success') {
@@ -161,10 +137,6 @@ export const useGameStore = defineStore('game', {
       }
     },
 
-    /**
-     * Records a new guess attempt, triggers a result re-calculation,
-     * and notifies other open tabs to synchronize their state.
-     */
     addGuess(GuessResult: GuessResult) {
       const game = this.activeGame
       if (!game || this.isGameDisabled)
@@ -184,9 +156,6 @@ export const useGameStore = defineStore('game', {
       })
     },
 
-    /**
-     * Track how many times the user played the audio clip.
-     */
     incrementListenCount() {
       const game = this.activeGame
       if (!game || this.isGameDisabled)
@@ -194,20 +163,12 @@ export const useGameStore = defineStore('game', {
       game.listenCount++
     },
 
-    /**
-     * Stores the correct solution for the active puzzle. This is typically
-     * called after a game concludes to allow for answer reveal logic.
-     */
     setFinalAnswer(answer: string) {
       if (this.activeGame) {
         this.activeGame.answer = answer
       }
     },
 
-    /**
-     * Internal logic to evaluate the current guess list and
-     * determine if the game state is a win, loss, or still pending.
-     */
     updateResult() {
       const game = this.activeGame
       if (!game)
@@ -224,12 +185,6 @@ export const useGameStore = defineStore('game', {
       }
     },
 
-    /**
-     * Submits the final game result to the backend.
-     *
-     * This is a "fire and forget" operation. It also handles creating an anonymous
-     * user record in the database if one doesn't already exist for this device.
-     */
     async submitPuzzleResult() {
       const game = this.activeGame
 
@@ -251,27 +206,19 @@ export const useGameStore = defineStore('game', {
 
       console.log('submitPuzzleResult in store', payload)
 
-      // Fire and forget - no response validation needed
+      // Result submission should not block the player from seeing results.
       $fetch(NUXT_API_ROUTES.SUBMIT_RESULTS, {
         method: 'POST',
         body: payload,
       }).catch(err => console.error('Failed to submit result:', err))
     },
 
-    /**
-     * Persists the current duration of the active daily game session.
-     * Archive games do not track elapsed time.
-     */
     setElapsedTime(time: number) {
       if (!this.archiveGame) {
         this.dailyGame.elapsedTime = time
       }
     },
 
-    /**
-     * Records the final clock time for a finished puzzle. This value
-     * is used for backend result submission and user stats.
-     */
     setCompletionTime(time: number) {
       const game = this.activeGame
       if (game) {
@@ -279,10 +226,6 @@ export const useGameStore = defineStore('game', {
       }
     },
 
-    /**
-     * The primary transition action. Commits the current game to
-     * permanent history, updates player streaks, and moves to the results view.
-     */
     finalizeGameResult() {
       const game = this.activeGame
       if (!game)
@@ -290,26 +233,17 @@ export const useGameStore = defineStore('game', {
 
       const historyStore = useHistoryStore()
       const statsStore = useStatsStore()
-
-      // 1. Save to permanent record
       historyStore.saveGameToHistory(game)
-
-      // 2. Update streak only if it's today's puzzle
       if (game.puzzleDate === getTodayString()) {
         statsStore.updateStreak()
       }
-
-      // 3. Show the results screen
       historyStore.viewResults(game.puzzleDate)
     },
 
-    /**
-     * Clears archive context and initializes the standard daily puzzle session.
-     */
     startDailyGame() {
       this.initializeDailyGame()
 
-      // Reset status synchronously so the component mounts in a loading state
+      // Keep the game view mounted in its loading state after a retry.
       if (this.dailyGame.loadingStatus === 'error') {
         this.dailyGame.loadingStatus = 'loading'
       }
@@ -319,10 +253,6 @@ export const useGameStore = defineStore('game', {
       uiStore.setView('game')
     },
 
-    /**
-     * Manually restores the store from asynchronous storage.
-     * Used to bypass timing issues between the persistence plugin and the Nuxt lifecycle.
-     */
     async hydrateState() {
       const state = await getHydratedState<any>('game')
       if (state) {

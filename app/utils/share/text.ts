@@ -3,9 +3,6 @@ import type { ResultsShareOptions } from '~/types/share/results'
 import type { UserStatistics } from '~/types/stats/user-stats.types'
 import { URL_QUERY_PARAMS } from '~/constants/app/routing'
 
-/**
- * Generates the shareable text for a completed game result.
- */
 export function generateResultShareText(data: GameInstance, options: ResultsShareOptions): string {
   const timeStr = data.completionTime ? formatPuzzleTime(data.completionTime) : 'N/A'
   const lines: string[] = ['Soundle']
@@ -37,9 +34,6 @@ export function generateResultShareText(data: GameInstance, options: ResultsShar
   return lines.join('\n')
 }
 
-/**
- * Generates shareable text for user statistics.
- */
 export function generateStatsShareText(data: UserStatistics): string {
   return [
     'Soundle Stats 📊',
@@ -51,9 +45,6 @@ export function generateStatsShareText(data: UserStatistics): string {
   ].join('\n')
 }
 
-/**
- * Generates the puzzle URL for a specific date.
- */
 export function generatePuzzleUrl(puzzleDate: string, baseUrl: string): string {
   return `${baseUrl}/?${URL_QUERY_PARAMS.PUZZLE_DATE}=${puzzleDate}`
 }

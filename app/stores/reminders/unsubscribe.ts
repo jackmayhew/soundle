@@ -5,35 +5,23 @@ import { UnsubscribeResponseSchema } from '~/schemas/reminders/unsubscribe.schem
 
 export const useUnsubscribeStore = defineStore('unsubscribe', {
   state: () => ({
-    /** The unique ID captured from the URL. */
     id: null as string | null,
-    /** Status for fetching the settings associated with the ID. */
     fetchStatus: 'loading' as 'loading' | 'success' | 'error',
-    /** Status for PATCH updates made from the unsubscribe page. */
     updateStatus: 'idle' as 'idle' | 'loading' | 'success' | 'error',
-    /** Tracks which specific settings are being updated for granular UI feedback. */
     updatingSettings: [] as string[],
-    /** The settings associated with the unsubscribe ID. */
     settings: {
       email: null as string | null,
       isSubscribed: false,
       includeHint: false,
     },
-    /** The result of the final one-click unsubscribe action. */
     unsubscribeResult: 'idle' as 'idle' | 'success' | 'error',
   }),
 
   actions: {
-    /**
-     * Captures the unique ID from the URL to initialize the unsubscribe process.
-     */
     setId(id: string) {
       this.id = id
     },
 
-    /**
-     * Fetches the settings associated with the unsubscribe ID to display to the user.
-     */
     async fetchSettingsById() {
       if (!this.id)
         return this.fetchStatus = 'error'
@@ -59,9 +47,6 @@ export const useUnsubscribeStore = defineStore('unsubscribe', {
       }
     },
 
-    /**
-     * Allows a user to toggle individual settings from the unsubscribe page.
-     */
     async updateSettingsById(payload: { isActive?: boolean, includeHint?: boolean }) {
       if (!this.id)
         return this.updateStatus = 'error'
@@ -101,9 +86,6 @@ export const useUnsubscribeStore = defineStore('unsubscribe', {
       }
     },
 
-    /**
-     * Executes the final, one-click unsubscribe action.
-     */
     async performUnsubscribe() {
       if (!this.id)
         return this.unsubscribeResult = 'error'

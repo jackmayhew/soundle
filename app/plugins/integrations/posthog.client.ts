@@ -7,11 +7,9 @@ export default defineNuxtPlugin((nuxtApp) => {
       api_host: config.public.posthogHost as string,
       person_profiles: 'identified_only',
       capture_pageview: false,
-      // autocapture: false,
       disable_session_recording: true,
     })
 
-    // Catch Vue Errors (Template crashes, logic errors)
     const vueErrorHandler = nuxtApp.vueApp.config.errorHandler
     nuxtApp.vueApp.config.errorHandler = (err, instance, info) => {
       posthog.capture('$exception', {

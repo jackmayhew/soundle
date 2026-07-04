@@ -1,14 +1,6 @@
 import type { GameInstance } from '~/types/game/game.types'
 import type { UserStatistics } from '~/types/stats/user-stats.types'
 
-/**
- * Aggregates a user's entire game history into a statistics profile.
- * Calculates win rates, average times, and guess distributions.
- * @param calendar The user's full game history.
- * @param streakData Object containing the user's current and longest streak data.
- * @param streakData.currentStreak The user's current consecutive win streak.
- * @param streakData.longestStreak The user's all-time longest win streak.
- */
 export function calculateUserStats(
   calendar: Record<string, Record<string, GameInstance>>,
   streakData: { currentStreak: number, longestStreak: number },

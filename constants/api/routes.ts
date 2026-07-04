@@ -1,4 +1,3 @@
-// Client-side routes (hits Nuxt server routes proxy)
 export const NUXT_API_ROUTES = {
   PUZZLE: (date: string) => `/api/puzzle/${date}`,
   GUESS: '/api/user-guess/guess',
@@ -6,14 +5,13 @@ export const NUXT_API_ROUTES = {
   SUBMIT_RESULTS: '/api/puzzle-results/submit-results',
   GLOBAL_RESULTS: (date: string) => `/api/puzzle-results/${date}`,
   CREATE_REMINDER: '/api/reminders',
-  REMINDER_SETTINGS: (userId: string) => `/api/reminders/${userId}`, // user id
-  REMINDER_SETTINGS_BY_ID: (id: string) => `/api/reminders/subscription/${id}`, // reminder id
+  REMINDER_SETTINGS: (userId: string) => `/api/reminders/${userId}`,
+  REMINDER_SETTINGS_BY_ID: (id: string) => `/api/reminders/subscription/${id}`,
   UPDATE_REMINDER_SETTINGS: (userId: string) => `/api/reminders/${userId}`,
   UPDATE_REMINDER_SETTINGS_BY_ID: (id: string) => `/api/reminders/subscription/${id}`,
   UNSUBSCRIBE: '/api/reminders/unsubscribe',
 }
 
-// Backend endpoints (used in server routes)
 export const FASTIFY_API_ROUTES = {
   PUZZLE: (date: string) => `/puzzle/${date}`,
   GUESS: '/guess',
@@ -22,8 +20,8 @@ export const FASTIFY_API_ROUTES = {
   SUBMIT_RESULTS: '/submit-results',
   GLOBAL_RESULTS: (date: string) => `/global-results/${date}`,
   CREATE_REMINDER: '/reminders',
-  REMINDER_SETTINGS: (userId: string) => `/reminders/${userId}`, // user id
-  REMINDER_SETTINGS_BY_ID: (id: string) => `/reminders/settings/${id}`, // reminder id
+  REMINDER_SETTINGS: (userId: string) => `/reminders/${userId}`,
+  REMINDER_SETTINGS_BY_ID: (id: string) => `/reminders/settings/${id}`,
   UPDATE_REMINDER_SETTINGS: (userId: string) => `/reminders/${userId}`,
   UPDATE_REMINDER_SETTINGS_BY_ID: (id: string) => `/reminders/settings/${id}`,
   UNSUBSCRIBE: '/unsubscribe',

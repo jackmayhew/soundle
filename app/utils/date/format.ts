@@ -1,8 +1,3 @@
-/**
- * Formats a YYYY-MM-DD string into a human-readable format (e.g., "Jan 1, 2025").
- * Gracefully handles invalid or undefined date strings.
- * @param dateString The date string to format.
- */
 export function formatDate(dateString: string | undefined): string {
   if (!dateString)
     return 'Unknown date'

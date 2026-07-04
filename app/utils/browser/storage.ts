@@ -5,9 +5,6 @@ localforage.config({
   storeName: 'pinia_state',
 })
 
-/**
- * Async storage wrapper using localforage (IndexedDB) for data persistence.
- */
 export const persistentStorage = {
   async setItem(key: string, value: any): Promise<any> {
     return await localforage.setItem(key, value)

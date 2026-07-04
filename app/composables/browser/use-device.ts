@@ -17,11 +17,7 @@ export function useDevice() {
 
   const checkForIOS = () => {
     const ua = navigator.userAgent
-
-    // 1. Standard check (iPhone, iPod, old iPad)
     const isIosDevice = /iPad|iPhone|iPod/.test(ua)
-
-    // 2. Modern check (iPadOS 13+ or iPhone in Desktop mode reports as Macintosh)
     const isMacWithTouch = ua.includes('Macintosh') && navigator.maxTouchPoints > 0
 
     isIOS.value = isIosDevice || isMacWithTouch

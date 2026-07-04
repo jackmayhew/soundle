@@ -32,12 +32,10 @@ export function useTimer(options: TimerOptions = {}) {
 
     startTime.value = Date.now()
 
-    // Interval for updating the display
     tickInterval = setInterval(() => {
       elapsedTime.value = baseElapsedTime + (Date.now() - (startTime.value ?? 0))
     }, 100)
 
-    // Separate, less frequent interval for saving progress
     if (onSave) {
       saveTimerInterval = setInterval(() => {
         onSave(elapsedTime.value)

@@ -9,10 +9,6 @@ const resultData = computed(() => {
   return historyStore.getGameByDate(historyStore.resultsDate)
 })
 
-/**
- * Handles the case where results data is missing or corrupt.
- * It removes the invalid entry from history and starts a fresh session for that puzzle.
- */
 function replayPuzzle() {
   const invalidDate = historyStore.resultsDate
   if (!invalidDate) {
@@ -20,10 +16,7 @@ function replayPuzzle() {
     return
   }
 
-  // Nuke the bad data via the history store
   historyStore.deleteGameFromHistory(invalidDate)
-
-  // Start a fresh archive session
   gameStore.startArchiveGame(invalidDate)
 }
 </script>

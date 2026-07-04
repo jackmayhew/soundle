@@ -4,18 +4,6 @@ import { DEFAULT_RATE_LIMIT_RETRY_SECONDS, SERVICE_UNAVAILABLE_RETRY_SECONDS } f
 
 type ApiClientOptions = Parameters<typeof $fetch>[1]
 
-/**
- * Strongly-typed API client wrapper around Nuxt's `$fetch`.
- * It provides Zod schema validation for responses, centralized error handling,
- * and automatic management of rate limiting and service unavailable states.
- *
- * @param schema The Zod schema to validate the API response against.
- * @param url The API endpoint to fetch.
- * @param options Standard options for `$fetch` (method, body, etc.).
- * @returns A promise that resolves with the validated API response.
- * @throws If the fetch fails, the network request is aborted, or the response
- *         fails Zod validation, the error is re-thrown after being logged.
- */
 export async function apiClient<T>(
   schema: z.Schema<T>,
   url: string,
@@ -32,7 +20,6 @@ export async function apiClient<T>(
   catch (error: any) {
     const { $posthog } = useNuxtApp()
 
-    // Log to PostHog
     if ($posthog) {
       $posthog.capture('$exception', {
         $exception_type: 'NetworkError',

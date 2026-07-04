@@ -7,8 +7,6 @@ export function useCountdown(
   onFinished?: () => void,
 ) {
   const remainingSeconds = ref(0)
-
-  // Interval logic
   const { pause, resume } = useIntervalFn(() => {
     if (!targetTimestamp.value) {
       remainingSeconds.value = 0
@@ -31,7 +29,6 @@ export function useCountdown(
     immediateCallback: true,
   })
 
-  // Watch the timestamp: if it exists, start/resume. If not, stop.
   watch(targetTimestamp, (newVal) => {
     if (newVal) {
       resume()

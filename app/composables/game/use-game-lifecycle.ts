@@ -43,12 +43,10 @@ export function useGameLifecycle(
   }
 
   function setupWatchers() {
-    // Pause timer when a modal is opened
     watch(() => uiStore.activeModal, (modal) => {
       if (modal) {
         const pausedTime = stopTimer()
 
-        // Start/resume timer when modal is closed
         watchOnce(() => uiStore.activeModal, () => {
           if (!isGuessingDisabled.value)
             startTimer(pausedTime)
@@ -56,7 +54,7 @@ export function useGameLifecycle(
       }
     })
 
-    // Stop timer when game is over (used if multiple tabs open)
+    // Another tab may finish the game and sync the result here.
     watch(() => gameStore.activeGame?.result, (newResult) => {
       if (newResult === 'win' || newResult === 'loss') {
         stopTimer()

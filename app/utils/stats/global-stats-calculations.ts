@@ -1,13 +1,8 @@
 import type { GlobalResultsResponse } from '~/schemas/results/global-results.schema'
 
-/**
- * Normalizes raw API response into a consistent format for the UI.
- * Fills in missing guess distribution slots and calculates percentages.
- */
 export function normalizeGlobalStats(response: GlobalResultsResponse) {
   const winRate = response.totalPlays > 0 ? (response.wins / response.totalPlays) * 100 : 0
 
-  // Ensure slots 1-6 are always represented
   const guessCounts = Array.from({ length: 6 }, (_, i) => ({ guess: i + 1, count: 0 }))
 
   if (response.guessDistribution) {

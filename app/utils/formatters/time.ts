@@ -1,7 +1,3 @@
-/**
- * Formats a duration in milliseconds into a standard MM:SS or HH:MM:SS string.
- * @param ms The duration in milliseconds.
- */
 export function formatPuzzleTime(ms: number): string {
   const totalSeconds = Math.floor(ms / 1000)
   const hours = Math.floor(totalSeconds / 3600)
@@ -15,10 +11,6 @@ export function formatPuzzleTime(ms: number): string {
   return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
 }
 
-/**
- * Formats seconds into a human-readable duration (e.g., "1m 32s", "1m", or "32s")
- * Used for rate limits or friendly UI messages.
- */
 export function formatDuration(totalSeconds: number): string {
   const minutes = Math.floor(totalSeconds / 60)
   const seconds = totalSeconds % 60

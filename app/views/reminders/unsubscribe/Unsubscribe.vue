@@ -1,8 +1,6 @@
 <script setup lang="ts">
 const unsubscribeStore = useUnsubscribeStore()
 
-// ?unsubscribeId=4573191e-355b-4648-86c3-a2edc595cd8c
-
 function handleVisibilityChange() {
   if (document.visibilityState === 'visible' && unsubscribeStore.id) {
     unsubscribeStore.fetchSettingsById()

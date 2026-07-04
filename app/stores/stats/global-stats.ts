@@ -6,23 +6,17 @@ import { normalizeGlobalStats } from '~/utils/stats/global-stats-calculations'
 
 export const useGlobalStatsStore = defineStore('globalStats', {
   state: () => ({
-    stats: {} as Record<string, ReturnType<typeof normalizeGlobalStats>>, // cache for stats by puzzle date
+    stats: {} as Record<string, ReturnType<typeof normalizeGlobalStats>>,
     loadingStates: {} as Record<string, 'idle' | 'loading' | 'success' | 'error'>,
   }),
 
   getters: {
-    /**
-     * Retrieves stats for the puzzle currently being viewed in the Results view.
-     */
     activeGlobalStats(state) {
       const historyStore = useHistoryStore()
       const date = historyStore.resultsDate
       return date ? state.stats[date] : null
     },
 
-    /**
-     * Retrieves the current loading status for the active results date.
-     */
     activeLoadingState(state) {
       const historyStore = useHistoryStore()
       const date = historyStore.resultsDate
@@ -31,10 +25,6 @@ export const useGlobalStatsStore = defineStore('globalStats', {
   },
 
   actions: {
-    /**
-     * Fetches community-wide statistics for a specific puzzle date.
-     * Implements a fallback to 'idle' on 429/503 errors to allow for retries.
-     */
     async fetchGlobalStats(puzzleDate?: string) {
       const targetDate = puzzleDate || useHistoryStore().resultsDate
 
@@ -55,10 +45,8 @@ export const useGlobalStatsStore = defineStore('globalStats', {
         this.loadingStates[dateKey] = 'success'
       }
       catch (error: any) {
-        // Delay error state to prevent UI flickering on fast failures
         await delay(500)
 
-        // Handle rate limiting or server overload by resetting to idle
         if (error.statusCode === 429 || error.statusCode === 503) {
           this.loadingStates[dateKey] = 'idle'
           return

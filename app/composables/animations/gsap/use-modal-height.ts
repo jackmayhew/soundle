@@ -15,26 +15,17 @@ export function useModalHeightAnimation(
       return
 
     const newContentHeight = entry.contentRect.height
-
-    // Calculate total height including padding/borders
     const style = window.getComputedStyle(modalPanel.value)
     const verticalPadding = Number.parseFloat(style.paddingTop) + Number.parseFloat(style.paddingBottom)
     const verticalBorder = Number.parseFloat(style.borderTopWidth) + Number.parseFloat(style.borderBottomWidth)
 
-    // const targetHeight = newContentHeight + verticalPadding + verticalBorder
     const targetHeight = Math.ceil(newContentHeight + verticalPadding + verticalBorder)
-
-    // Skip if height hasn't effectively changed
     if (Math.abs(previousHeight.value - targetHeight) < 1) {
       previousHeight.value = targetHeight
       return
     }
-
-    // Lock to old height
     modalPanel.value.style.height = `${previousHeight.value}px`
     modalPanel.value.style.overflow = 'hidden'
-
-    // Animate
     gsap.to(modalPanel.value, {
       height: targetHeight,
       duration: 0.3,

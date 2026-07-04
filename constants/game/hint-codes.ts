@@ -1,10 +1,5 @@
 import type { HintCodeType } from '~/types/game/hint-code.types'
 
-/**
- * Standardized codes and user-facing messages for guess feedback.
- * These ensure consistency between the backend validation and the frontend display.
- */
-
 export const HintCode = {
   WAY_OFF: 'WAY_OFF',
   SIMILAR_CATEGORY: 'SIMILAR_CATEGORY',

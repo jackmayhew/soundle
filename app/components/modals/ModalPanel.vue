@@ -9,7 +9,6 @@ const previouslyFocusedElement = ref<HTMLElement | null>(null)
 
 const titleId = 'modal-title'
 
-// --- HEIGHT ANIMATION LOGIC ---
 const { previousHeight } = useModalHeightAnimation(modalPanel, contentWrapper)
 
 onMounted(() => {
@@ -17,7 +16,6 @@ onMounted(() => {
     previousHeight.value = modalPanel.value.offsetHeight
 })
 
-// --- CLOSING LOGIC ---
 onKeyStroke('Escape', () => {
   model.value = false
 })
@@ -26,13 +24,11 @@ onClickOutside(modalPanel, () => {
   model.value = false
 })
 
-// --- FOCUS MANAGEMENT LOGIC ---
 watch(model, async (isActive) => {
   if (isActive) {
     previouslyFocusedElement.value = document.activeElement as HTMLElement
     await nextTick()
     modalPanel.value?.focus()
-    // Reset height tracker when opening
     if (modalPanel.value)
       previousHeight.value = modalPanel.value.offsetHeight
   }
@@ -56,14 +52,12 @@ function handleFocusTrap(e: KeyboardEvent) {
   const firstElement = focusableElements[0]
   const lastElement = focusableElements[focusableElements.length - 1]
 
-  // Shift + Tab
   if (e.shiftKey) {
     if (document.activeElement === firstElement) {
       e.preventDefault()
       lastElement?.focus()
     }
   }
-  // Tab
   else {
     if (document.activeElement === lastElement) {
       e.preventDefault()

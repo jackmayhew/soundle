@@ -12,6 +12,7 @@ const userStats = computed(() => statsStore.stats)
     <Header
       title="My Stats."
       subtitle="Track your streaks and stats."
+      blur-position="-bottom-[8px] h-[8px]"
     />
     <div>
       <div class="text-center mb-4">

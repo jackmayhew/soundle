@@ -5,13 +5,9 @@ import { useUserStore } from '~/stores/user'
 
 export const useReminderSettingsStore = defineStore('reminderSettings', {
   state: () => ({
-    /** Status for the initial fetch of settings. */
     fetchStatus: 'loading' as 'loading' | 'success' | 'error',
-    /** Status for any update/PATCH operations. */
     updateStatus: 'idle' as 'idle' | 'loading' | 'success' | 'error',
-    /** Tracks which specific settings are being updated for granular UI feedback. */
     updatingSettings: [] as string[],
-    /** The user's current reminder settings. */
     settings: {
       isRegistered: false,
       email: null as string | null,
@@ -27,9 +23,6 @@ export const useReminderSettingsStore = defineStore('reminderSettings', {
   },
 
   actions: {
-    /**
-     * Retrieves the current user's reminder settings from the backend.
-     */
     async fetchSettings() {
       const userStore = useUserStore()
       if (!userStore.anonymousId) {
@@ -60,9 +53,6 @@ export const useReminderSettingsStore = defineStore('reminderSettings', {
       }
     },
 
-    /**
-     * Updates specific reminder settings for the current user.
-     */
     async updateSettings(payload: { isActive?: boolean, includeHint?: boolean }) {
       const userStore = useUserStore()
       if (!userStore.anonymousId)
@@ -103,11 +93,6 @@ export const useReminderSettingsStore = defineStore('reminderSettings', {
       }
     },
 
-    /**
-     * Updates the local state after a user successfully signs up for reminders.
-     * This transitions the UI from the signup form to the settings management view.
-     * @param email The email address the user signed up with.
-     */
     handleSignupSuccess(email: string) {
       this.settings.email = email
       this.settings.isRegistered = true

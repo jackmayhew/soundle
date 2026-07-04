@@ -15,14 +15,11 @@ export function useGridTicker(icons: any[]) {
   let lastIcon: any = null
 
   function animateSquare() {
-    // Select Square (No Repeat)
     let newIndex = Math.floor(Math.random() * 9)
     while (newIndex === lastSquare) {
       newIndex = Math.floor(Math.random() * 9)
     }
     lastSquare = newIndex
-
-    // Select Color
     const colors = [
       'bg-accent-blue',
       'bg-accent-orange',
@@ -33,8 +30,6 @@ export function useGridTicker(icons: any[]) {
     ]
 
     const newColor = colors[Math.floor(Math.random() * colors.length)]
-
-    // Select Icon (No Repeat)
     let newIcon = icons[Math.floor(Math.random() * icons.length)]
     while (newIcon === lastIcon && icons.length > 1) {
       newIcon = icons[Math.floor(Math.random() * icons.length)]

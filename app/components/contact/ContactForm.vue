@@ -52,16 +52,11 @@ async function handleSubmit() {
     return
   }
 
-  // honeypot
   if (form.value.honeypot) {
     console.warn('Honeypot field filled. Likely a bot.')
     submissionStatus.value = 'success'
     return
   }
-
-  // if (document.activeElement && 'blur' in document.activeElement) {
-  //   (document.activeElement as HTMLElement).blur()
-  // }
 
   submissionStatus.value = 'submitting'
 
@@ -98,7 +93,7 @@ async function handleSubmit() {
 
 <template>
   <form class="flex flex-col gap-1 flex-grow justify-center" novalidate @submit.prevent="handleSubmit">
-    <!-- Honeypot -->
+    <!-- Keep bot traffic out of the contact endpoint without exposing the field visually. -->
     <div class="absolute w-px h-px overflow-hidden -left-[5000px]">
       <label for="honeypot-name">Name</label>
       <input
@@ -138,7 +133,6 @@ async function handleSubmit() {
 
     <ContactFormButton :status="submissionStatus" />
 
-    <!-- Screen reader announcements -->
     <span class="sr-only" aria-live="polite" role="status">
       <p v-if="submissionStatus === 'success'">
         Form submitted successfully. We'll get back to you as soon as possible!
@@ -148,7 +142,6 @@ async function handleSubmit() {
       </p>
     </span>
 
-    <!-- Visual feedback -->
     <p v-if="submissionStatus === 'success'" class="text-green-700 text-sm text-center mt-1 font-bold">
       Success. We'll get back to you shortly!
     </p>
