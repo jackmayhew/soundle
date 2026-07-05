@@ -15,9 +15,9 @@
 
 ## About
 
-Players listen to a short audio clip and submit guesses. Each guess is evaluated by an LLM, and returns a hint if incorrect.
+Players listen to a short audio clip and try to guess what the sound is. Guesses are evaluated by an LLM, and a hint is returned for incorrect guesses.
 
-Stats and streaks are stored so players can track their progress over time.
+Stats and streaks are saved locally so players can track their progress over time.
 
 ## Features
 
@@ -25,7 +25,7 @@ Stats and streaks are stored so players can track their progress over time.
 - Play any past puzzle from the archive
 - LLM-powered guess evaluation
 - Player stats and streak tracking
-- Share results and stats as text or an image
+- Share results and stats as an image or text
 - Optional email reminders for new puzzles
 
 ## Tech stack
@@ -33,8 +33,8 @@ Stats and streaks are stored so players can track their progress over time.
 ### Frontend (this repo)
 
 - Nuxt 4
-- Pinia
 - TypeScript
+- Pinia
 - Zod
 - Tailwind CSS
 - GSAP
@@ -42,8 +42,8 @@ Stats and streaks are stored so players can track their progress over time.
 ### Backend (separate repo)
 
 - Fastify
-- PostgreSQL
 - TypeScript
+- PostgreSQL
 - LLM integration
 
 ## Development
