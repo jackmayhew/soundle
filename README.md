@@ -1,5 +1,5 @@
 <div align="center">
- <img src="docs/assets/soundle.png" alt="Soundle" width="300">
+ <img src="docs/assets/soundle.png" alt="Soundle" width="300" height="300">
 
  ##
 
