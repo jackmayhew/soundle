@@ -49,7 +49,7 @@ const steps = [
         :key="index"
         class="flex gap-3 items-start"
       >
-        <div class="flex-shrink-0 border-3 bg-white-primary dark:bg-light-game-background dark:bg-dark-game-background text-light-text-primary dark:text-dark-text-primary rounded border-light-border-primary dark:border-dark-border-primary aspect-square h-7 flex items-center justify-center text-sm font-bold">
+        <div class="flex-shrink-0 border-3 bg-white-primary dark:bg-dark-game-background dark:bg-dark-game-background text-light-text-primary dark:text-dark-text-primary rounded border-light-border-primary dark:border-dark-border-primary aspect-square h-7 flex items-center justify-center text-sm font-bold">
           {{ index + 1 }}
         </div>
         <div>
