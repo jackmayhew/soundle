@@ -82,7 +82,7 @@ export function useImageShare({ elementId, fileName }: UseImageShareOptions) {
 
       const options = {
         quality: 0.95,
-        pixelRatio: 2,
+        pixelRatio: 4,
         fontEmbedCSS: embeddedFontCSS,
         style: { borderRadius: '1rem', border: '3px solid #000' },
       }
