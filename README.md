@@ -1,5 +1,5 @@
 <div align="center">
-<img src="docs/assets/soundle.png" alt="Soundle" width="200">
+ <img src="docs/assets/soundle.png" alt="Soundle" width="300">
 
  ##
 
@@ -10,7 +10,7 @@
 
 [🌐 Website](https://soundle.game/) | [💬 Support](https://github.com/jackmayhew/soundle/issues)
 
-<img src="docs/assets/grid.gif" alt="grid animation">
+<img src="docs/assets/grid.gif" alt="grid animation" width="300">
 </div>
 
 ## About
