@@ -1,5 +1,5 @@
 <div align="center">
- <img src="docs/assets/soundle.png" alt="Soundle" width="300" height="300">
+<img src="docs/assets/soundle.png" alt="Soundle" style="width: 200px; height: auto;">
 
  ##
 
@@ -56,6 +56,9 @@ git clone https://github.com/jackmayhew/soundle.git
 
 # Install dependencies
 pnpm install
+
+# Create your local environment file and fill in the required values
+cp .env.example .env
 
 # Run development server
 pnpm dev  # Note: Full functionality requires a backend connection
